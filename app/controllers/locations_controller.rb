@@ -1,9 +1,9 @@
 class LocationsController < ApplicationController
 
   def index
-      if params[:city]
+    if params[:city]
       @locations = Location.where(city: params[:city], urban: params[:urban], capacity: params[:capacity])
-      else
+    else
       @locations = Location.where(urban: params[:urban], capacity: params[:capacity])
     end
     #critere date deuxieme temps
