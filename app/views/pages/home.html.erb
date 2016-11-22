@@ -1,5 +1,7 @@
-<h1>Commencez à faire pousser votre nourriture !</h1>
-<h4>Apprenez à cultiver votre propre nourriture dans des lieux uniques, chez vous, seul ou en groupe.</h2>
+<div class="container">
+  <h1>Commencez à faire pousser votre nourriture !</h1>
+  <h4>Apprenez à cultiver votre propre nourriture dans des lieux uniques, chez vous, seul ou en groupe.</h2>
+</div>
 
 <div class="container">
   <form action="/locations" method="get">
@@ -14,7 +16,8 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= select_tag "urban", options_for_select(Location::LOCATION) %></td>
+          <!-- <td><%#= select_tag "urban", options_for_select(Location::LOCATION) %></td> -->
+          <td><%= select_tag "urban", options_for_select(["S'initier à l'agriculture urbaine", "Découvrir les bonnes pratiques à la campagne"], "S'initier à l'agriculture urbaine") %></td>
           <td><input type="text" placeholder="Ville de votre choix" name="city"></td>
           <td><%= select_tag "capacity", options_for_select((1..10).map(&:to_s)) %></td>
           <td><%= submit_tag "Search", class:"btn btn-medium" %></td>
@@ -24,7 +27,44 @@
     </form>
 </div>
 
+<div class="container">
 <h4>Exemples de stages</h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Some stuff</h2>
+    <p>Very cool stuff, useful and smart</p>
+  </div>
+  <img class="card-user avatar" src="user.jpg">
+  <a class="card-link" href="#" ></a>
+</div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Some stuff</h2>
+    <p>Very cool stuff, useful and smart</p>
+  </div>
+  <img class="card-user avatar" src="user.jpg">
+  <a class="card-link" href="#" ></a>
+</div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Some stuff</h2>
+    <p>Very cool stuff, useful and smart</p>
+  </div>
+  <img class="card-user avatar" src="user.jpg">
+  <a class="card-link" href="#" ></a>
+</div>
+    </div>
+  </div>
+</div>
 
 <!-- reminder -->
 <!-- <div class="text-center padded">
