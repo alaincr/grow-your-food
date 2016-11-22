@@ -3,85 +3,121 @@
   <h4>Apprenez à cultiver votre propre nourriture dans des lieux uniques, chez vous, seul ou en groupe.</h2>
 </div>
 
-<div class="container">
-  <form action="/locations" method="get">
-    <table>
-      <thead>
-        <tr>
-          <th><%= label_tag "Quoi ?" %></th>
-          <th><%= label_tag "Où ?" %></th>
-          <th><%= label_tag "Nombre de participants" %></th>
-          <!-- <th><%#= label_tag "" %></th> -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <!-- <td><%#= select_tag "urban", options_for_select(Location::LOCATION) %></td> -->
-          <td><%= select_tag "urban", options_for_select(["S'initier à l'agriculture urbaine", "Découvrir les bonnes pratiques à la campagne"], "S'initier à l'agriculture urbaine") %></td>
-          <td><input type="text" placeholder="Ville de votre choix" name="city"></td>
-          <td><%= select_tag "capacity", options_for_select((1..10).map(&:to_s)) %></td>
-          <td><%= submit_tag "Search", class:"btn btn-medium" %></td>
-        </tr>
-      </tbody>
-    </table>
-    </form>
+<div class="container padded">
+<form action="/locations" method="get" class="form-inline">
+  <div class="form-group">
+    <select name="urban" id="urban" class="form-control">
+      <option selected="selected" value="true">S'initier à l'agriculture urbaine</option>
+      <option value="false">Découvrir les bonnes pratiques à la campagne</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="text" class= "form-control" placeholder="Ville de votre choix" name="city">
+  </div>
+  <div class="form-group">
+    <select name="capacity" id="capacity" class="form-control">
+      <option value="1">1 participant</option>
+      <option value="2">2 participants</option>
+      <option value="3">3 participants</option>
+      <option value="4">4 participants</option>
+      <option value="5">5 participants</option>
+      <option value="6">6 participants</option>
+      <option value="7">7 participants</option>
+      <option value="8">8 participants</option>
+      <option value="9">9 participants</option>
+      <option value="10">10 participants</option></select>
+    </select>
+  </div>
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+</form>
 </div>
 
 <div class="container">
-<h4>Exemples de stages</h2>
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Some stuff</h2>
-    <p>Very cool stuff, useful and smart</p>
-  </div>
-  <img class="card-user avatar" src="user.jpg">
-  <a class="card-link" href="#" ></a>
-</div>
+  <h4>Exemples de stages</h2>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+          <div class="card-category">Popular</div>
+            <div class="card-description">
+            <h2>Some stuff</h2>
+            <p>Very cool stuff, useful and smart</p>
+          </div>
+        <img class="card-user avatar" src="user.jpg">
+        <a class="card-link" href="#" ></a>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Some stuff</h2>
-    <p>Very cool stuff, useful and smart</p>
-  </div>
-  <img class="card-user avatar" src="user.jpg">
-  <a class="card-link" href="#" ></a>
-</div>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+    <div class="card-category">Popular</div>
+    <div class="card-description">
+      <h2>Some stuff</h2>
+      <p>Very cool stuff, useful and smart</p>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Some stuff</h2>
-    <p>Very cool stuff, useful and smart</p>
+    <img class="card-user avatar" src="user.jpg">
+    <a class="card-link" href="#" ></a>
   </div>
-  <img class="card-user avatar" src="user.jpg">
-  <a class="card-link" href="#" ></a>
-</div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+    <div class="card-category">Popular</div>
+    <div class="card-description">
+      <h2>Some stuff</h2>
+      <p>Very cool stuff, useful and smart</p>
     </div>
+    <img class="card-user avatar" src="user.jpg">
+    <a class="card-link" href="#" ></a>
   </div>
+      </div>
+
+    </div>
 </div>
 
-<!-- reminder -->
-<!-- <div class="text-center padded">
-  <#%= link_to "browse locations", locations_path, class: "btn btn-primary" %>
+
+
+
+<!-- <div class="container padded">
+  <form action="/locations" method="get" class="form-horizontal">
+    <div class="form-group">
+      <label for="Quoi" class="col-sm-2 control-label">Quoi ?</label>
+      <div class="col-sm-10">
+        <select name="urban" id="urban" class="form-control">
+          <option selected="selected" value="true">S'initier à l'agriculture urbaine</option>
+          <option value="false">Découvrir les bonnes pratiques à la campagne</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Ou" class="col-sm-2 control-label">Où ?</label>
+      <div class="col-sm-10">
+        <input type="text" class= "form-control" placeholder="Ville de votre choix" name="city">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Participants" class="col-sm-2 control-label">Participants ?</label>
+      <div class="col-sm-10">
+        <select name="capacity" id="capacity" class="form-control">
+          <option value="1">1 participant</option>
+          <option value="2">2 participants</option>
+          <option value="3">3 participants</option>
+          <option value="4">4 participants</option>
+          <option value="5">5 participants</option>
+          <option value="6">6 participants</option>
+          <option value="7">7 participants</option>
+          <option value="8">8 participants</option>
+          <option value="9">9 participants</option>
+          <option value="10">10 participants</option></select>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+      </div>
+    </div>
+  </form>
 </div> -->
 
-<!-- <td><%#= select_tag "urban", options_for_select(Location::LOCATION), prompt: "Choose one" %></td> -->
 
-
-
-<!--
-Form
-Quoi ? Choix entre : Agriculture urbaine / Bonnes pratiques à la campagne
-Où ? …. Saisie user : ville, région, pays
-Quand ?…. datepicker
-Nombre de personnes ? idem air bnb
-
-exemples en dessous -->
-
-<!--  -->
