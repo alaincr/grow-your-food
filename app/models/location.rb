@@ -5,3 +5,5 @@ class Location < ApplicationRecord
   validates :urban, presence: true
   validates :capacity, presence: true
 end
+
+#add dates after
