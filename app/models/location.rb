@@ -1,9 +1,10 @@
 class Location < ApplicationRecord
-  LOCATION = ["S'initier à l'agriculture urbaine", "Découvrir les bonnes pratiques à la campagne"]
+  # LOCATION = ["S'initier à l'agriculture urbaine", "Découvrir les bonnes pratiques à la campagne"]
   belongs_to :user
-  belongs_to :booking
+  has_many :bookings
   validates :city, presence: true
-  validates :urban, presence: true, inclusion: { in: LOCATION }
+  validates :urban, presence: true
+  # validates :urban, presence: true , inclusion: { in: LOCATION }
   validates :capacity, presence: true
 end
 
