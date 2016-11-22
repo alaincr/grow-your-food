@@ -11,7 +11,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-
+    @location = Location.find(params[:id])
+    #@Booking = Booking.new
   end
 
   def new

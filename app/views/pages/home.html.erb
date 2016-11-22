@@ -1,15 +1,41 @@
-<p><%= link_to "browse locations", locations_path %></p>
+<h1>Commencez à faire pousser votre nourriture !</h1>
+<h4>Apprenez à cultiver votre propre nourriture dans des lieux uniques, chez vous, seul ou en groupe.</h2>
+
+<div class="container">
+  <form action="/locations" method="get">
+    <table>
+      <thead>
+        <tr>
+          <th><%= label_tag "Quoi ?" %></th>
+          <th><%= label_tag "Où ?" %></th>
+          <th><%= label_tag "Nombre de participants" %></th>
+          <!-- <th><%#= label_tag "" %></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= select_tag "urban", options_for_select(Location::LOCATION) %></td>
+          <td><input type="text" placeholder="Ville de votre choix" name="city"></td>
+          <td><%= select_tag "capacity", options_for_select((1..10).map(&:to_s)) %></td>
+          <td><%= submit_tag "Search", class:"btn btn-medium" %></td>
+        </tr>
+      </tbody>
+    </table>
+    </form>
+</div>
+
+<h4>Exemples de stages</h2>
+
+<!-- reminder -->
+<!-- <div class="text-center padded">
+  <#%= link_to "browse locations", locations_path, class: "btn btn-primary" %>
+</div> -->
+
+<!-- <td><%#= select_tag "urban", options_for_select(Location::LOCATION), prompt: "Choose one" %></td> -->
+
 
 
 <!--
-Header :
-Partagez votre savoir-faire (Proposez des stages, des cours particuliers, chez vous à la campagne ou en ville)
-
-TAgline :
- «Commencez à faire pousser votre nourriture »
-Apprenez à cultiver votre propre nourriture dans des lieux uniques, chez vous, seul ou en groupe.
-( : stages agriculture urbaine, permaculture, cours particuliers, tutoriels…) // agroecologie, permaculture
-
 Form
 Quoi ? Choix entre : Agriculture urbaine / Bonnes pratiques à la campagne
 Où ? …. Saisie user : ville, région, pays
@@ -17,3 +43,5 @@ Quand ?…. datepicker
 Nombre de personnes ? idem air bnb
 
 exemples en dessous -->
+
+<!--  -->
