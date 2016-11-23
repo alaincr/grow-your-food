@@ -1,5 +1,37 @@
-<% @locations.each do |location |%>
-<%= location.city %>
-<%= location.urban %>
-<%= location.capacity.to_i %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="row">
+        <div class="col-xs-12">
+          <form action="/locations" method="get" class="form-inline padded">
+            <button type="submit" class="btn btn-default">Street containers</button>
+            <button type="submit" class="btn btn-default">Rooftop permaculture</button>
+            <button type="submit" class="btn btn-default">Jardins partagés</button>
+          </form>
+        </div>
+      </div>
+
+      <% @locations.each do |location |%>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="card card-location"
+           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_url 'GYOF6' %>);">
+              <div class="card-category"></div>
+              <div class="card-description">
+                <h2>
+                  <%= location.city %>
+                </h2>
+                <p><%= location.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-4">
+      <div class="map">
+
+      </div>
+    </div>
+</div>
+
