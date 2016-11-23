@@ -9,5 +9,5 @@ User.destroy_all
 Location.destroy_all
 User.create!( email: "monsieur@home.com", password: "bbbbbbb")
 User.create!( email: "madame@home.com", password: "aaaaaaa")
-Location.create!( address: "3 rue de la Joie", urban: true, city: "paris", description: "un endroit pomme", capacity: 2 )
-Location.create!( address: "4 rue de la Paix", urban: false, city: "lisbonne", description: "plus on est de fous, plus on bêche", capacity: 4 )
+Location.create!( address: "3 rue de la Joie", urban: true, city: "paris", description: "un endroit pomme", capacity: 2, user_id: 13 )
+Location.create!( address: "4 rue de la Paix", urban: false, city: "lisbonne", description: "plus on est de fous, plus on bêche", capacity: 4, user_id: 14 )

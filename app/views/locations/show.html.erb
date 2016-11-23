@@ -21,10 +21,10 @@
           </div>
       </div>
   <body>
-    <div class="wrapper grey">
-      <div class="container">
-        <div class="row">
-          <div class=""ol-sm-offset-4 col-sm-4 c">
+    <div class="wrapper">
+      <div class="container padded">
+        <div class="row padded">
+          <div class=" col-sm-6">
             <img src="images/globe.png" alt="">
             <h2><%= @location.address %></h2>
             <p>The earth is your new home.</p>
@@ -35,12 +35,13 @@
             <h2><%= @location.city %></h2>
             <p>Discover new culture and lifestyle.</p>
             <img src="images/heart.png" alt="">
-            <h2><% location.capacity.times do >
-            </h2>
+            </h2> 
             <p>Join a community you will love.</p>
           </div>
-          <div class="row">
+          <div class="row padded">
             <h2>endroit pour la carte google</h2>
+            <h2><%= @text %></h2>
+            <h2><%= javascript_include_tag('test.js') %></h2>
           </div>
       </div>
     <div class="text-center padded" id="newsletter">
