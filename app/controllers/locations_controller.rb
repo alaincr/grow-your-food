@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
 
   def index
-    if params[:city]
-      @locations = Location.where(city: params[:city], urban: params[:urban], capacity: params[:capacity])
+    if !params[:city].blank?
+      @locations = Location.where(city: params[:city], urban: params[:urban], capacity: params[:capacity].to_i)
     else
-      @locations = Location.where(urban: params[:urban], capacity: params[:capacity])
+      @locations = Location.where(urban: params[:urban], capacity: params[:capacity].to_i)
     end
     @locations = Location.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|

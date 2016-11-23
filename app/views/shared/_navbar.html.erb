@@ -4,7 +4,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.svg" %>
+    <%= image_tag "logonb.svg" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -17,6 +17,7 @@
         <i class="fa fa-search"></i>
       </button>
     </form> -->
+    <%= link_to "Partagez votre savoir-faire", "#", class: "navbar-wagon-item btn" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
@@ -61,7 +62,6 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%#= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
