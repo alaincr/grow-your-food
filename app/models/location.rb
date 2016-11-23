@@ -3,8 +3,7 @@ class Location < ApplicationRecord
   belongs_to :user
   has_many :bookings
   validates :city, presence: true
-  validates :urban, presence: true
-  # validates :urban, presence: true , inclusion: { in: LOCATION }
+  # validates :urban, presence: true
   validates :capacity, presence: true
 end
 

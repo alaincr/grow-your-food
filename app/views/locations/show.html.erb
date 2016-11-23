@@ -14,29 +14,35 @@
     <![endif]-->
   </head>
      <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('images/background.jpg');">
-          <div class="banner-content">
+          <div class="banner-content text-center">
             <h1>WELCOME HOME</h1>
             <p>Vous avez choisi un super endroit pour apprendre à faire pousser votre nourriture.</p>
             <a class="btn btn-primary btn-lg">How it works</a>
           </div>
       </div>
   <body>
-    <div class="wrapper-grey">
-      <div class="container">
-        <div class="row text-center padded features">
-        <div class=""ol-sm-offset-4 col-sm-4 c">
-          <img src="images/globe.png" alt="">
-          <h2><%= @location.address %></h2>
-          <p>The earth is your new home.</p>
-          <img src="images/dollar.png" alt="">
-          <h2><%= @location.description %></h2>
-          <p>No cash issues anymore.</p>
-          <img src="images/beer.png" alt="">
-          <h2>Meet people</h2>
-          <p>Discover new culture and lifestyle.</p>
-          <img src="images/heart.png" alt="">
-          <h2>Share and love</h2>
-          <p>Join a community you will love.</p>
+    <div class="wrapper">
+      <div class="container padded">
+        <div class="row padded">
+          <div class=" col-sm-6">
+            <img src="images/globe.png" alt="">
+            <h2><%= @location.address %></h2>
+            <p>The earth is your new home.</p>
+            <img src="images/dollar.png" alt="">
+            <h2><%= @location.description %></h2>
+            <p>No cash issues anymore.</p>
+            <img src="images/beer.png" alt="">
+            <h2><%= @location.city %></h2>
+            <p>Discover new culture and lifestyle.</p>
+            <img src="images/heart.png" alt="">
+            </h2> 
+            <p>Join a community you will love.</p>
+          </div>
+          <div class="row padded">
+            <h2>endroit pour la carte google</h2>
+            <h2><%= @text %></h2>
+            <h2><%= javascript_include_tag('test.js') %></h2>
+          </div>
       </div>
     <div class="text-center padded" id="newsletter">
       <h2>Get news from us</h2>

@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Location.create!( address: "3 rue de la Joie", urban: true, city: "paris", description: "un endroit pomme" )
-Location.create!( urban:true, address: "4 rue de la Paix", city: "lisbonne", description: "plus on est de fous, plus on bêche" )
-Location.create!( address: "place de la folie", urban: false, city: "london", description: "on se croirait à la campagne, et on y est" )
+User.destroy_all
+Location.destroy_all
+User.create!( email: "monsieur@home.com", password: "bbbbbbb")
+User.create!( email: "madame@home.com", password: "aaaaaaa")
+Location.create!( address: "3 rue de la Joie", urban: true, city: "paris", description: "un endroit pomme", capacity: 2, user_id: 13 )
+Location.create!( address: "4 rue de la Paix", urban: false, city: "lisbonne", description: "plus on est de fous, plus on bêche", capacity: 4, user_id: 14 )
