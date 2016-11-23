@@ -5,7 +5,8 @@ class Location < ApplicationRecord
   validates :city, presence: true
   # validates :urban, presence: true
   validates :capacity, presence: true
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
 
-#add dates after
 

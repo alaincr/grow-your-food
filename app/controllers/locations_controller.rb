@@ -6,14 +6,19 @@ class LocationsController < ApplicationController
     else
       @locations = Location.where(urban: params[:urban], capacity: params[:capacity])
     end
-    #critere date deuxieme temps
-    #critere nbre de personne inf ou eg a nbre de place dispo deuxieme temps
+    @locations = Location.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+      marker.lat location.latitude
+      marker.lng location.longitude
+    end
   end
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat 
 
   def show
     @location = Location.find(params[:id])
-    #@Booking = Booking.new
+    @hash = [{ lat: @location.latitude, lng: @location.longitude }]
   end
+    #@Booking = Booking.new
 
   def new
   end
