@@ -10,6 +10,14 @@
   padding-bottom: 2em;
 }
 
+.paddedup {
+  padding-top: 5em;
+}
+
+.paddeddown {
+  padding-bottom: 1em;
+}
+
 .padded {
   padding-top: 2em;
   padding-bottom: 2em;
@@ -28,3 +36,10 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+.white-link {
+  color: white;
+}
+ .white-link:hover {
+  color: white;
+ }

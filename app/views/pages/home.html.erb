@@ -34,9 +34,8 @@
 </form>
 </div>
 
+<!-- CARDS -->
 <div class="container">
-<!--   <h4>Exemples de stages</h2>
- -->
  <div class="row">
     <% @locations.each do |location| %>
     <div class="col-xs-12 col-sm-4 padded">
@@ -49,8 +48,8 @@
           </h2>
           <p><%= location.description %></p>
         </div>
-<!--         <img class="card-user avatar" src="user.jpg">
-        <a class="card-link" href="#" ></a> -->
+        <!--<img class="card-user avatar" src="user.jpg-->
+        <%= link_to "", location_path(location), class: "card-link"%>
       </div>
     </div>
     <% end  %>
@@ -58,46 +57,6 @@
 </div>
 
 
-<!-- <div class="container padded">
-  <form action="/locations" method="get" class="form-horizontal">
-    <div class="form-group">
-      <label for="Quoi" class="col-sm-2 control-label">Quoi ?</label>
-      <div class="col-sm-10">
-        <select name="urban" id="urban" class="form-control">
-          <option selected="selected" value="true">S'initier à l'agriculture urbaine</option>
-          <option value="false">Découvrir les bonnes pratiques à la campagne</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="Ou" class="col-sm-2 control-label">Où ?</label>
-      <div class="col-sm-10">
-        <input type="text" class= "form-control" placeholder="Ville de votre choix" name="city">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="Participants" class="col-sm-2 control-label">Participants ?</label>
-      <div class="col-sm-10">
-        <select name="capacity" id="capacity" class="form-control">
-          <option value="1">1 participant</option>
-          <option value="2">2 participants</option>
-          <option value="3">3 participants</option>
-          <option value="4">4 participants</option>
-          <option value="5">5 participants</option>
-          <option value="6">6 participants</option>
-          <option value="7">7 participants</option>
-          <option value="8">8 participants</option>
-          <option value="9">9 participants</option>
-          <option value="10">10 participants</option></select>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Rechercher</button>
-      </div>
-    </div>
-  </form>
-</div> -->
+
 
 
