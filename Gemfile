@@ -28,7 +28,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# gem 'capistrano-rails', group: :development`
+gem 'cloudinary', '1.1.0'
+gem "attachinary", github: "assembler/attachinary"
+gem "jquery-fileupload-rails"
 
 #css
 gem "bootstrap-sass"
@@ -57,6 +60,8 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'better_errors'
 end
