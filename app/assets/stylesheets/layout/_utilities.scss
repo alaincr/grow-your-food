@@ -43,3 +43,8 @@
  .white-link:hover {
   color: white;
  }
+.vertical-banner {
+  background-image: asset-url('carots.JPG');
+  background-size: cover;
+  height: calc(100vh - 70px);
+}
