@@ -1,10 +1,29 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sx-12 col-md-8">
+  <!-- COL GAUCHE -->
+    <div class="col-sx-12 col-md-7">
       <div class="row">
         <div class="col-xs-12">
-          <form action="/locations" method="get" class="form-inline padded">
+          <div class="form-group paddedup">
+            <h4 class="paddeddown">Vous avez choisi l'agriculture urbaine !</h4>
+            <input type="text" class= "form-control" placeholder="Ville de votre choix" name="city">
+          </div>
+        <div class="form-group">
+          <select name="capacity" id="capacity" class="form-control">
+            <option value="1">1 participant</option>
+            <option value="2">2 participants</option>
+            <option value="3">3 participants</option>
+            <option value="4">4 participants</option>
+            <option value="5">5 participants</option>
+            <option value="6">6 participants</option>
+            <option value="7">7 participants</option>
+            <option value="8">8 participants</option>
+            <option value="9">9 participants</option>
+            <option value="10">10 participants</option></select>
+          </select>
+        </div>
+          <form action="/locations" method="get" class="form-inline">
             <button type="submit" class="btn btn-default">Street containers</button>
             <button type="submit" class="btn btn-default">Rooftop permaculture</button>
             <button type="submit" class="btn btn-default">Jardins partagés</button>
@@ -13,7 +32,6 @@
       </div>
 
       <% @locations.each do |location |%>
-        <!-- <div class="row"> -->
           <div class="col-xs-12 col-md-6 padded">
             <div class="card card-location"
            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_url 'GYOF6' %>);">
@@ -24,24 +42,14 @@
                 </h2>
                 <p><%= location.description %></p>
               </div>
+              <%= link_to "", location_path(location), class: "card-link"%>
             </div>
           </div>
-        <!-- </div> -->
       <% end %>
     </div>
-    <div class="col-xs-12 col-md-4 padded">
-      <div class="card card-location"
-           style="background-image: url(<%= asset_url 'map' %>); width:500px" >
-      </div>
-      <div class="card card-location"
-           style="background-image: url(<%= asset_url 'map' %>); width:500px" >
-      </div>
-
-      <div class="card card-location"
-           style="background-image: url(<%= asset_url 'map' %>); width:500px" >
-      </div>
-      <div class="map">
-
+    <!-- COL DROITE -->
+    <div class="col-xs-12 col-md-5 padded">
+      <div id="map" style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; height: 100vh;" class="paddedup"></div>
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
             $(document).ready(function() {
