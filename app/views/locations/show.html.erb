@@ -1,36 +1,29 @@
-<div class="banner" style="background-image: url(<%= image_path('GYOF1.png') %>);">
-  <div class="banner-content text-center">
-    <h1 style="color: white">Welcome home</h1>
-    <h4 style="color: white">Vous avez choisi un super endroit pour apprendre à faire pousser votre nourriture.</h4>
-    <h2 class="btn btn-primary btn-lg">Les détails</h2>
-  </div>
-</div>
 <div class="container padded">
-  <div class="row padded col-sm-6">
-    <h2>l'adresse</h2>
-    <p><%= @location.address %></p>
-    <h2>la description</<h2>
-    <p><%= @location.description %></p>
-    <h2>le lieu</h2>
-    <p><%= @location.city %></p>
-    <h2>la capacité</h2>
-    <a><%= @location.description %></a>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 ">
+      <h2>l'adresse</h2>
+      <p><%= @location.address %></p>
+      <h2>la description</h2>
+      <p><%= @location.description %></p>
+      <h2>le lieu</h2>
+      <p><%= @location.city %></p>
+      <h2>la capacité</h2>
+      <p><%= @location.capacity %></p>
+    </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div id="map" style="width: 100%; height: 400px;">
+      </div>
+    </div>
   </div>
-  <div class="row padded col-sm-6">
-    <div id="map" style="width: 100%; height: 400px;">
+  <div class="row">
+    <div id="reservation" class="col-sm-4">
+      <h2>placeholder</h2>
     </div>
   </div>
 </div>
-<div id="footer">
-  <ul class="list-inline">
-    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-  </ul>
-  <p></p>
-</div>
-<%= content_for(:after_js) do %>
+<script>
+<% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
@@ -47,3 +40,4 @@
     });
   <% end %>
 <% end %>
+</script>
