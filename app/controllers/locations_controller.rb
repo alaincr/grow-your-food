@@ -6,10 +6,9 @@ class LocationsController < ApplicationController
     else
       @locations = Location.where(urban: params[:urban], capacity: params[:capacity].to_i)
     end
-    @locations1 = Location.where.not(latitude: nil, longitude: nil)
-    @hash = Gmaps4rails.build_markers(@locations1) do |location, marker|
-      marker.lat location.latitude
-      marker.lng location.longitude
+    @hash = Gmaps4rails.build_markers(@locations) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
     end
   end
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat
