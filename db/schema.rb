@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20161123151151) do
     t.integer  "booking_id"
     t.integer  "user_id"
     t.string   "city"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "title"
     t.float    "latitude"
     t.float    "longitude"
