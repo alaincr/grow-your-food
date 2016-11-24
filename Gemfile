@@ -60,8 +60,6 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'better_errors'
 end

@@ -1,4 +1,4 @@
-<div class="banner banner-centered" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @location.photo.nil? ? "http://placehold.it/1000x400" : cl_image_path(@location.photo) %>');">
+<div class="banner banner-centered" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @location.photo.nil? ? "http://placehold.it/1000x400" : cl_image_path(@location.photo.path) %>');">
   <div class="banner-content">
     <h1><%= @location.title %></h1>
   </div>
@@ -9,14 +9,13 @@
       <div class="col-sm-8 ">
         <div class="row">
           <div class="col-sm-8">
-            <h2><%= location.title %></h2>
+            <h2><%= @location.title %></h2>
           <div class="col-sm-4 border-radius">
-            <img scr='<% @user.photo %>' >
         <div class=row>
           <div class="col-sm-12">
             <h2>Placeholder fontawsome</h2>
         <div class="row">
-          <div class='col-sm-12'
+          <div class='col-sm-12'>
             <h2>l'adresse</h2>
             <p><%= @location.address %></p>
             <h2>la description</h2>
@@ -42,7 +41,7 @@
   </div>
 
 <% content_for(:after_js) do %>
-  <script>  
+  <script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
