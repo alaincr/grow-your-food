@@ -1,5 +1,4 @@
 class LocationsController < ApplicationController
-
   def index
     # if !params[:city].blank?
     #   @locations = Location.where(city: params[:city], urban: params[:urban], capacity: params[:capacity].to_i)
@@ -25,5 +24,4 @@ class LocationsController < ApplicationController
 
   def create
   end
-
 end
