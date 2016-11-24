@@ -25,3 +25,88 @@
                 <button type="submit" class="btn btn-danger">Book</button>
               <% end %>
             </p>
+
+
+            <div class="banner banner-centered" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @location.photo.nil? ? "http://placehold.it/1000x400" : cl_image_path(@location.photo.path) %>');">
+  <div class="banner-content">
+    <h1><%= @location.title %></h1>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 text-left">
+        <div class="row">
+          <div class="col-sm-8">
+            <h2><%= @location.title %></h2>
+<<<<<<< HEAD
+          <div class="col-sm-4 border-radius">
+=======
+          </div>
+          <div class="col-sm-4 border-radius">
+            <img class='img-circle' scr='<% @user.photo %>' >
+          </div>
+        </div>
+>>>>>>> master
+        <div class=row>
+          <div class="col-sm-12 text-left">
+            <ul class= 'list-inline'>
+              <li>
+              <i class='fa fa-twitter'></i>
+              </li>
+            <h2>Placeholder fontawsome</h2>
+          </div>
+        </div>
+        <div class=row>
+          <div class="col-sm-12">
+            <p><% @location.address %></p>
+          </div>
+        <div class="row">
+          <div class='col-sm-12'>
+<<<<<<< HEAD
+            <h2>l'adresse</h2>
+            <p><%= @location.address %></p>
+            <h2>la description</h2>
+=======
+>>>>>>> master
+            <p><%= @location.description %></p>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="container">
+          <div class="row">
+             <div id="map" style="width: 25%; height: 150px;">
+             </div>
+          </div>
+          <div class="row">
+             <h2>placeholdergmaps</h2>
+          </div>
+        </div>
+      </div>
+      <div id="reservation" class="col-sm-4">
+        <%= simple_form_for [@location, @booking] do |f| %>
+          <h2><%= f.input :date_beginning %></h2>
+          <h2><%= f.input :date_end %></h2>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  </script>
+<% end %>

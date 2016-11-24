@@ -15,6 +15,7 @@
             <%= f.input :description, label: "Description", placeholder:"Quelques lignes pour décrire votre technique exceptionnelle" %>
             <%= f.input :capacity, label: "Capacité d'accueil", placeholder: "Combien de personnes pouvez-vous accueillir ?" %>
             <%= f.input :price, label: "Prix par jour", placeholder: "50 €" %>
+            <%= f.input :photo, as: :attachinary %>
             <%= f.submit "Partager !", class: "btn btn-primary" %>
           <% end %>
         </div>

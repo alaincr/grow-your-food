@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20161124141034) do
     t.integer  "booking_id"
     t.integer  "user_id"
     t.string   "city"
+    t.string   "title"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "title"
     t.index ["booking_id"], name: "index_locations_on_booking_id", using: :btree
     t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
   end
