@@ -17,6 +17,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @hash = [{ lat: @location.latitude, lng: @location.longitude }]
     @booking = Booking.new(location_id: @location.id)
+    @user = @location.user
   end
     #@Booking = Booking.new
 
