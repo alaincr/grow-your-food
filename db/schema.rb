@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20161123151151) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "title"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["booking_id"], name: "index_locations_on_booking_id", using: :btree
     t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
   end
