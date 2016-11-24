@@ -1,5 +1,4 @@
 class LocationsController < ApplicationController
-
   def index
     # if !params[:city].blank?
     #   @locations = Location.where(city: params[:city], urban: params[:urban], capacity: params[:capacity].to_i)
@@ -22,9 +21,22 @@ class LocationsController < ApplicationController
     #@Booking = Booking.new
 
   def new
+    @location = Location.new
   end
 
   def create
+    @location = Location.new(location_params)
+    @location.user = current_user
+    if @location.save
+      redirect_to location_path(@location)
+    else
+      render :new
+    end
   end
 
+  private
+  def location_params
+    params.require(:location).permit(:urban, :title, :city, :description, :capacity, :price)
+  end
 end
+
