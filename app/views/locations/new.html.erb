@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="new-location-container">
+        <div class="new-location-header">
+          <h1>Partagez votre savoir-faire!</h1>
+          <p>Proposez un stage, chez vous, avec une technique que vous maîtrisez :)</p>
+        </div>
+        <div class="new-location-form padded">
+          <%= simple_form_for @location do |f| %>
+          <!-- Mettre type au lieu de urban une fois cree dans table -->
+            <%# f.input :urban, label: "Agriculture urbaine // Techniques", as: :check_boxes, collection: ["Rooftop permaculture","Street container", "Jardins partagés"] %>
+            <%= f.input :title, label: "Donnez un titre à votre stage", placeholder: "Collection de tomates à la Bourdaisière" %>
+            <%= f.input :address, label: "Adresse", placeholder: "16 villa gaudelet, Paris"  %>
+            <%= f.input :description, label: "Description", placeholder:"Quelques lignes pour décrire votre technique exceptionnelle" %>
+            <%= f.input :capacity, label: "Capacité d'accueil", placeholder: "Combien de personnes pouvez-vous accueillir ?" %>
+            <%= f.input :price, label: "Prix par jour", placeholder: "50 €" %>
+            <%= f.submit "Partager !", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="vertical-banner">
+       &nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- t.string   "address"
+    t.text     "description"
+
+    t.string   "urban"
+    t.boolean  "rooftop"
+    t.boolean  "permaculture"
+    t.boolean  "training"
+
+    t.integer  "capacity"
+    t.integer  "price"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "booking_id"
+    t.integer  "user_id"
+    t.string   "city"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "title"
+    t.float    "latitude"
+    t.float    "longitude"
+ -->
