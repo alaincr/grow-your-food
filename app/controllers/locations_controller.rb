@@ -1,11 +1,13 @@
 class LocationsController < ApplicationController
+  before_action :authenticate_user!, only: :create
+
   def index
-    # if !params[:city].blank?
-    #   @locations = Location.where(city: params[:city], urban: params[:urban], capacity: params[:capacity].to_i)
-    # else
-    #   @locations = Location.where(urban: params[:urban], capacity: params[:capacity].to_i)
-    # end
-    @locations = Location.all
+    if !params[:city].blank?
+      @locations = Location.where(city: params[:city], urban: params[:urban], capacity: params[:capacity].to_i)
+    else
+      @locations = Location.all
+      # @locations = Location.where(urban: params[:urban], capacity: params[:capacity].to_i)
+    end
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude

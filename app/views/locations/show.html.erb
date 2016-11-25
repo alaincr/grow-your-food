@@ -1,59 +1,42 @@
-<div class="banner banner-centered" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @location.photo.nil? ? "http://placehold.it/1000x400" : cl_image_path(@location.photo.path) %>');">
+<!-- <div class="banner banner-centered" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @location.photo.nil? ? "http://placehold.it/1000x400" : cl_image_path(@location.photo.path) %>');">
   <div class="banner-content">
     <h1><%= @location.title %></h1>
   </div>
-</div>
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 text-left">
-        <div class="row">
-          <div class="col-sm-8">
-            <h2><%= @location.title %></h2>
-          </div>
-          <div class="col-sm-4 border-radius">
-            <img class='img-circle' scr='<% @location.user.photo %>' >
-          </div>
+</div> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="location-show-content">
+        <div class="description-and-booking">
+          <h1><%= @location.title %></h1>
+          <h2><%= @location.city %></h2>
+          <h3><%= @location.description%></h3>
+          &nbsp;
+          <h4>Stage de <%= @location.capacity%> personnes</h4>
+          <p><em><%= @location.address%></em></p>
+          <button type="button" class="btn btn-primary"><%= @location.price %>€</button>
+
+          <% if !(current_user == @location.user) %>
+            <div class="new-location-form padded">
+              <%= simple_form_for [@location, @booking] do |f| %>
+                <%= f.input :date_beginning, as: :string, label: "Date de début", input_html: { class: "datepicker" } %>
+                <%= f.input :date_end, as: :string, label: "Date de fin", input_html: { class: "datepicker" } %>
+                <%= f.submit "Réserver", class: 'btn btn-primary' %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
-        <div class=row>
-          <div class="col-sm-12 text-left">
-            <ul class= 'list-inline'>
-              <li>
-              <i class='fa fa-twitter'></i>
-              </li>
-            <h2>Placeholder fontawsome</h2>
-          </div>
-        </div>
-        <div class=row>
-          <div class="col-sm-12">
-            <p><% @location.address %></p>
-          </div>
-        <div class="row">
-          <div class='col-sm-12'>
-            <p><%= @location.description %></p>
-          </div>
+        <div id="map" style="width: 100%; height: 400px;">
         </div>
       </div>
-      <div class="col-sm-2">
-        <div class="container">
-          <div class="row">
-             <div id="map" style="width: 25%; height: 150px;">
-             </div>
-          </div>
-          <div class="row">
-             <h2>placeholdergmaps</h2>
-          </div>
-        </div>
-      </div>
-      <div id="reservation" class="col-sm-4">
-        <%= simple_form_for [@location, @booking] do |f| %>
-          <h2><%= f.input :date_beginning %></h2>
-          <h2><%= f.input :date_end %></h2>
-          <%= f.submit %>
-        <% end %>
+    </div>
+    <div class="col-sm-6 no-padding-right">
+      <div class="location-img">
+        <%= cl_image_tag(@location.photo.path) %>
       </div>
     </div>
   </div>
+</div>
 
 <% content_for(:after_js) do %>
   <script>
