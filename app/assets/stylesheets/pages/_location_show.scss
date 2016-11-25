@@ -1,0 +1,17 @@
+.location-show-content {
+  height: calc(100vh - 70px);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  .description-and-booking {
+    flex: 0 0 auto;
+  }
+  #map {
+    flex: 0 0 auto;
+    margin-bottom: 20px;
+  }
+}
+#reservation {
+width: 100%}
